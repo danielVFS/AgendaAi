@@ -1,13 +1,11 @@
 import React from 'react';
 
-import { Wrapper } from '../_layouts/default/styles';
+import api from '../../services/api';
 
 function Dashboard() {
-  return (
-    <Wrapper>
-      <h1>Dashboard</h1>
-    </Wrapper>
-  );
+  api.get('appointments');
+
+  return <h1>Dashboard</h1>;
 }
 
 export default Dashboard;
