@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
+import Notifications from '../Notifications';
 import logo from '../../assets/scheduleIcon.png';
 import { Container, Content, Profile } from './styles';
 
@@ -14,6 +15,8 @@ function Header() {
         </nav>
 
         <aside>
+          <Notifications />
+
           <Profile>
             <div>
               <strong>Daniel Vitor</strong>
