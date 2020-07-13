@@ -5,6 +5,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import AvatarInput from './AvatarInput';
 import { Container } from './styles';
 import { updateProfileRequest } from '../../store/modules/user/actions';
+import { signOut } from '../../store/modules/auth/actions';
 
 function Profile() {
   const dispatch = useDispatch();
@@ -12,6 +13,10 @@ function Profile() {
 
   function handleSubmit(data) {
     dispatch(updateProfileRequest(data));
+  }
+
+  function handleSignOut() {
+    dispatch(signOut());
   }
 
   return (
@@ -39,7 +44,9 @@ function Profile() {
         <button type="submit">Atualizar Perfil</button>
       </Form>
 
-      <button type="button">Sair do AgendaAi</button>
+      <button type="button" onClick={handleSignOut}>
+        Sair do AgendaAi
+      </button>
     </Container>
   );
 }
