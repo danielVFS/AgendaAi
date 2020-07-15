@@ -8,7 +8,7 @@ function Button({ children, loading, ...rest }) {
   return (
     <Container {...rest}>
       {loading ? (
-        <ActivityIndicator size="small" color="#fff" />
+        <ActivityIndicator size="small" color="#000" />
       ) : (
         <Text>{children}</Text>
       )}

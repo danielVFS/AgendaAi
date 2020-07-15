@@ -1,5 +1,5 @@
 import {Alert} from 'react-native';
-import { all, takeLatest, call, put } from 'redux-saga/effects';
+import { all, takeLatest, call, put,delay } from 'redux-saga/effects';
 
 import api from '../../../services/api';
 import { signInSuccess, signFailure } from './actions';
@@ -42,7 +42,6 @@ export function* signUp({ payload }) {
       name,
       email,
       password,
-      provider: true,
     });
 
     //history.push('/');
