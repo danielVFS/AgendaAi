@@ -1,16 +1,20 @@
 import React from 'react';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-import Icon from 'react-native-vector-icons/FontAwesome';
+import Icon from 'react-native-vector-icons/MaterialIcons';
 
 import Dashboard from '../pages/Dashboard';
+import Profile from '../pages/Profile';
 
 const Tabs = createBottomTabNavigator();
 
 export default function AppRoutes() {
   const icons = {
-    Dashboard: {
-      name: 'home',
+    Agendamentos: {
+      name: 'event',
     },
+    Perfil: {
+      name: 'person',
+    }
   };
 
   return (
@@ -24,13 +28,19 @@ export default function AppRoutes() {
       })}
       tabBarOptions={{
         style: {
-          backgroundColor: '#131313',
+          backgroundColor: '#990017',
+          // Remove border top on both android & ios
+          borderTopWidth: 0,
+          borderTopColor: "transparent",
         },
+        keyboardHidesTabBar: true,
         activeTintColor: '#FFF',
-        inactiveTintColor: '#B5BEBF',
+        inactiveTintColor: 'rgba(255,255,255,0.6)',
+
       }}
     >
-      <Tabs.Screen name="Dashboard" component={Dashboard} />
+      <Tabs.Screen name="Agendamentos" component={Dashboard}  />
+      <Tabs.Screen name="Perfil" component={Profile} />
     </Tabs.Navigator>
   );
 }
