@@ -2,13 +2,13 @@ import React from 'react';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import Icon from 'react-native-vector-icons/FontAwesome';
 
-import Home from '../pages/Home';
+import Dashboard from '../pages/Dashboard';
 
 const Tabs = createBottomTabNavigator();
 
 export default function AppRoutes() {
   const icons = {
-    Home: {
+    Dashboard: {
       name: 'home',
     },
   };
@@ -30,7 +30,7 @@ export default function AppRoutes() {
         inactiveTintColor: '#B5BEBF',
       }}
     >
-      <Tabs.Screen name="Home" component={Home} />
+      <Tabs.Screen name="Dashboard" component={Dashboard} />
     </Tabs.Navigator>
   );
 }
