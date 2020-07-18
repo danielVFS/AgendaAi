@@ -4,12 +4,14 @@ export const Container = styled.View`
   margin-bottom: 15px;
   padding: 28px;
   border-radius: 4px;
-  background: #FFF;
+  background: #fff;
 
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
+
+  opacity: ${(props) => (props.past ? 0.6 : 1)};
 `;
 
 export const Left = styled.View`
@@ -37,5 +39,5 @@ export const Name = styled.Text`
 export const Time = styled.Text`
   font-size: 13px;
   margin-top: 4px;
-  color: #999;
+  color: #333;
 `;
