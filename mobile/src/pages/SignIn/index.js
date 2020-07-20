@@ -1,10 +1,10 @@
-import React, { useRef,useState } from 'react';
+import React, { useRef, useState } from 'react';
 import { Image } from 'react-native';
-import {useDispatch} from 'react-redux';
+import { useDispatch } from 'react-redux';
 
 import Background from '../../components/Background';
 import logo from '../../assets/scheduleIcon.png';
-import {signInRequest} from '../../store/modules/auth/actions';
+import { signInRequest } from '../../store/modules/auth/actions';
 
 import {
   Container,
@@ -19,11 +19,11 @@ export default function SignIn({ navigation }) {
   const passwordRef = useRef();
   const dispatch = useDispatch();
 
-  const [email,setEmail] = useState('');
-  const [password,setPassword] = useState('');
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
 
   function handleSubmit() {
-    dispatch(signInRequest(email,password));
+    dispatch(signInRequest(email, password));
   }
 
   return (
