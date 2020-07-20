@@ -1,9 +1,9 @@
-import {Alert} from 'react-native';
-import { all, takeLatest, call, put,delay } from 'redux-saga/effects';
+import { Alert } from 'react-native';
+import { all, takeLatest, call, put, delay } from 'redux-saga/effects';
 
 import api from '../../../services/api';
 import { signInSuccess, signFailure } from './actions';
-//import history from '../../../services/history';
+// import history from '../../../services/history';
 
 export function* signIn({ payload }) {
   try {
@@ -17,7 +17,10 @@ export function* signIn({ payload }) {
     const { token, user } = response.data;
 
     if (user.provider) {
-      Alert.alert('Erro no login', 'Usuário não pode ser um prestador de serviços');
+      Alert.alert(
+        'Erro no login',
+        'Usuário não pode ser um prestador de serviços'
+      );
       return;
     }
 
@@ -27,9 +30,12 @@ export function* signIn({ payload }) {
     api.defaults.headers.Authorization = `Bearer ${token}`;
 
     yield put(signInSuccess(token, user));
-    //history.push('/dashboard');
+    // history.push('/dashboard');
   } catch (error) {
-    Alert.alert('Falha na autenticação', 'Houve um erro no login, verigique seus dados');
+    Alert.alert(
+      'Falha na autenticação',
+      'Houve um erro no login, verigique seus dados'
+    );
     yield put(signFailure());
   }
 }
@@ -44,9 +50,12 @@ export function* signUp({ payload }) {
       password,
     });
 
-    //history.push('/');
+    // history.push('/');
   } catch (error) {
-    Alert.alert('Falha no cadastro', 'Houve um erro no no cadastro, verigique seus dados');
+    Alert.alert(
+      'Falha no cadastro',
+      'Houve um erro no no cadastro, verigique seus dados'
+    );
 
     yield put(signFailure());
   }
@@ -62,13 +71,8 @@ export function setToken({ payload }) {
   }
 }
 
-export function signOut() {
-  //history.push('/');
-}
-
 export default all([
   takeLatest('persist/REHYDRATE', setToken),
   takeLatest('@auth/SIGN_IN_REQUEST', signIn),
   takeLatest('@auth/SIGN_UP_REQUEST', signUp),
-  takeLatest('@auth/SIGN_OUT', signOut),
 ]);
