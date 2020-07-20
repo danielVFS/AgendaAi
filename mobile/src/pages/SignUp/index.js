@@ -1,10 +1,10 @@
-import React, { useRef,useState } from 'react';
+import React, { useRef, useState } from 'react';
 import { Image } from 'react-native';
-import {useDispatch,useSelector} from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 
 import Background from '../../components/Background';
 import logo from '../../assets/scheduleIcon.png';
-import {signUpRequest} from '../../store/modules/auth/actions';
+import { signUpRequest } from '../../store/modules/auth/actions';
 
 import {
   Container,
@@ -20,14 +20,14 @@ export default function SignUp({ navigation }) {
   const passwordRef = useRef();
   const dispatch = useDispatch();
 
-  const [name,setName] = useState('');
-  const [email,setEmail] = useState('');
-  const [password,setPassword] = useState('');
+  const [name, setName] = useState('');
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
 
-  const loading = useSelector(state => state.auth.loading);
+  const loading = useSelector((state) => state.auth.loading);
 
   function handleSubmit() {
-    dispatch(signUpRequest(name,email,password));
+    dispatch(signUpRequest(name, email, password));
   }
 
   return (
@@ -70,7 +70,9 @@ export default function SignUp({ navigation }) {
             onChangeText={setPassword}
           />
 
-          <SubmitButton loading={loading} onPress={handleSubmit}>Cadastrar</SubmitButton>
+          <SubmitButton loading={loading} onPress={handleSubmit}>
+            Cadastrar
+          </SubmitButton>
         </Form>
 
         <SignLink onPress={() => navigation.goBack()}>
