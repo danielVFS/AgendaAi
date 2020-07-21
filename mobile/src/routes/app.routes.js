@@ -8,6 +8,7 @@ import Dashboard from '../pages/Dashboard';
 import Profile from '../pages/Profile';
 import SelectProvider from '../pages/New/SelectProvider';
 import SelectDateTime from '../pages/New/SelectDateTime';
+import Confirm from '../pages/New/Confirm';
 
 const Tabs = createBottomTabNavigator();
 const Stack = createStackNavigator();
@@ -36,7 +37,48 @@ function StackNavigation({ navigation }) {
           ),
         }}
       />
-      <Stack.Screen name="SelectDateTime" component={SelectDateTime} />
+      <Stack.Screen
+        name="SelectDateTime"
+        component={SelectDateTime}
+        options={{
+          title: 'Selecione o horário',
+          headerTintColor: '#FFF',
+          headerTransparent: true,
+          headerLeftContainerStyle: {
+            marginLeft: 20,
+          },
+          headerLeft: () => (
+            <TouchableOpacity
+              onPress={() => {
+                navigation.navigate('SelectProvider');
+              }}
+            >
+              <Icon name="chevron-left" size={30} color="#fff" />
+            </TouchableOpacity>
+          ),
+        }}
+      />
+      <Stack.Screen
+        name="Confirm"
+        component={Confirm}
+        options={{
+          title: 'Confirme o prestador',
+          headerTintColor: '#FFF',
+          headerTransparent: true,
+          headerLeftContainerStyle: {
+            marginLeft: 20,
+          },
+          headerLeft: () => (
+            <TouchableOpacity
+              onPress={() => {
+                navigation.navigate('SelectDateTime');
+              }}
+            >
+              <Icon name="chevron-left" size={30} color="#fff" />
+            </TouchableOpacity>
+          ),
+        }}
+      />
     </Stack.Navigator>
   );
 }

@@ -1,14 +1,17 @@
 import React from 'react';
-import { View, Text } from 'react-native';
 
 import Background from '../../../components/Background';
+import DateTimeInput from '../../../components/DateTimeInput';
+import { Container } from './styles';
 
-export default function SelectDateTime() {
+export default function SelectDateTime({ route }) {
+  const { provider } = route.params;
+
   return (
     <Background>
-      <View>
-        <Text>Select Date Time</Text>
-      </View>
+      <Container>
+        <DateTimeInput provider={provider} />
+      </Container>
     </Background>
   );
 }
