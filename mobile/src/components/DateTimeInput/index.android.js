@@ -14,7 +14,7 @@ import {
   Title,
 } from './styles';
 
-export default function DateTimeInput({ provider }) {
+export default function DateTimeInput({ provider, navigate }) {
   const [opened, setOpened] = useState(false);
   const [dateTime, setDateTime] = useState(new Date());
   const [hours, setHours] = useState([]);
@@ -46,7 +46,9 @@ export default function DateTimeInput({ provider }) {
     }
   };
 
-  function handleSelectHour(time) {}
+  function handleSelectHour(time) {
+    navigate('Confirm', provider, time);
+  }
 
   return (
     <Container>
