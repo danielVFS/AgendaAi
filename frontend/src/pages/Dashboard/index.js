@@ -21,8 +21,8 @@ import { Container, Time } from './styles';
 const range = [8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18];
 
 function Dashboard() {
-  const [schedule, setSchedule] = useState([]);
   const [date, setDate] = useState(new Date());
+  const [schedule, setSchedule] = useState([]);
 
   const dateFormatted = useMemo(
     () => format(date, "d 'de' MMMM", { locale: pt }),
@@ -47,15 +47,17 @@ function Dashboard() {
         return {
           time: `${hour}:00h`,
           past: isBefore(compareDate, new Date()),
-          appointment: response.data.find((a) => isEqual(a.date, compareDate)),
+          appointment: response.data.find((element) =>
+            isEqual(parseISO(element.date), compareDate)
+          ),
         };
       });
 
-      console.tron.log(data);
       setSchedule(data);
+      console.tron.log(data);
     }
     loadSchedule();
-  }, [date]);
+  }, []);
 
   function handlePrevDay() {
     setDate(subDays(date, 1));
