@@ -105,6 +105,7 @@ export default function TabsNabivator() {
           return <Icon name={name} color={color} size={size} />;
         },
         tabBarVisible: route.name !== 'Agendar',
+        unmountOnBlur: true,
       })}
       tabBarOptions={{
         style: {
