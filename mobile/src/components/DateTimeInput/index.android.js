@@ -47,7 +47,7 @@ export default function DateTimeInput({ provider, navigate }) {
   };
 
   function handleSelectHour(time) {
-    navigate('Confirm', provider, time);
+    navigate('Confirm', time);
   }
 
   return (

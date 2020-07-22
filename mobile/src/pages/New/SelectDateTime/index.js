@@ -7,9 +7,9 @@ import { Container } from './styles';
 export default function SelectDateTime({ navigation, route }) {
   const { provider } = route.params;
 
-  function navigationToConfirm(screen, provide, time) {
+  function navigationToConfirm(screen, time) {
     navigation.navigate(`${screen}`, {
-      provide,
+      provider,
       time,
     });
   }
